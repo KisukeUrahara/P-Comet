@@ -1,0 +1,314 @@
+
+
+                            <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>P-Comet</title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+                    <link rel="icon" type="image/png" href="images/gsletterP12.png">
+<link rel="stylesheet" href="docs/css/metro-bootstrap.css">
+<link rel="stylesheet" href="docs/css/metro-bootstrap-responsive.css">
+<link href="docs/css/iconFont.css" rel="stylesheet">
+<link rel="stylesheet" href="docs/css/iconFont.css">
+<script src ="docs/js/jquery/jquery.min.js"></script>
+<script src ="docs/js/jquery/jquery.mousewheel.js"></script>
+<script src="docs/js/jquery/jquery.widget.min.js"></script>
+<script src="docs/js/metro.min.js"></script>
+<script src="docs/js/metro-carousel.js"></script>
+<script src="docs/js/prettify.js"></script>
+<script src="docs/js/metro-dropdown.js"></script>
+
+ <script src="js/hitua.js"></script>
+
+ <script type="text/javascript" language="javascript">
+ //callback handler for form submit
+ function yeha()
+ {
+ alert("click");
+$("#ajaxform").submit(function(e)
+{
+    var postData = $(this).serializeArray();
+    var formURL = $(this).attr("action");
+    $.ajax(
+    {
+        url : formURL,
+        type: "POST",
+        data : postData,
+        success:function(data, textStatus, jqXHR)
+        {
+            alert("heheqadasd");  
+			window.location.replace("http://localhost/Testing/add.html")
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            alert("hehe");   
+        }
+    });
+   // e.preventDefault(); STOP default action
+    //e.unbind();
+	//unbind. to stop multiple form submit.
+});
+ 
+$("#ajaxform").submit(); //Submit  the FORM
+}
+</script>
+
+
+
+
+<style>
+.container{
+    width:600px;
+    float:right;
+    margin-right:10px;
+    position: absolute;
+    right: 0px;
+    left:300px;
+    top:54px;
+    
+    }
+ </style>
+            
+     
+
+   
+</head>
+<body class = "metro" style="background-image: url('images/grayback.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+<div class="navigation-bar dark fixed-top" style="z-index:1;">
+    <div class="navigation-bar-content">
+        <a href="index.html" class="element image-button image-left place-left">P-Comet<img src="images/gsletterP12.png"></a>
+
+        <a class="pull-menu" href="#"></a> <!-- To create button for expanding top menu !-->
+
+                    <ul class="element-menu place-left">
+ 
+        <span class="element-divider"></span><a class="element brand" href="addproject.html"><span class="icon-book"></span><span class="icon-plus"></span></a><span class="element-divider"></span>
+        <a class="element brand" href="chat.html"><span class="icon-comments-2"></span></a>
+        <span class="element-divider"></span>
+        
+        <a class="element brand" href="#"><span class="icon-alarm"></span></a>
+        <span class="element-divider"></span>
+ 
+        
+ 
+        
+        <!--<span class="element-divider place-right"></span>
+        <a class="element place-right" href="#"><span class="icon-locked-2"></span></a>-->
+
+        </ul>
+
+       
+            <ul class="element-menu place-right">
+            <span class="element-divider"></span>
+        <a class="element image-button image-left" href="profile.html">
+            Shiva Deviah
+            <img src="images/sil.png"/>
+        </a>
+        <span class="element-divider"></span>
+        <a class="element place-right" href="#"><i class="icon-exit"></i> Sign Out</a>
+        </ul>
+
+
+        
+     
+                            
+        
+    </div>
+    </div>
+</div>
+
+
+<br><br><br><br>
+
+<div style="width:20%;">
+<nav class="sidebar light" style="z-index:-1; background-color: rgba(255,255,255,0.0);">
+                            <ul>
+                                <li class="title"><center>Quick Access Menu</center></li>
+                                <li class><a href="home.html"><i class="icon-home"></i>Home</a></li>
+                                
+                                <li><a href="profile.html"><i class="icon-user-2"></i>My Profile</a></li>
+
+                                                    <li> <a class="dropdown-toggle" href="#"><i class="icon-book"></i>Projects</a>
+                                    <ul class="dropdown-menu" data-role="dropdown" style="display: none;">
+                                        <li class><a href="addproject.html">Start Project</a></li>
+                                        <li><a href="">My Projects</a></li>
+                                             
+
+                                                     </ul></li>
+
+                                                     <li class="active"><a href="#"><i class="icon-search"></i>Search</a>
+                                    </li>
+
+
+                                       
+                                        
+                                        <li class="divider"></li>
+                                        
+                                        
+                                    
+                                
+                               
+
+                                <li class="title"><center>More Options</center></li>
+                                <li><a href="chat.html"><i class="icon-comments-2"></i>Private Message System</a></li>
+                                <li><a href="#"><i class="icon-alarm"></i>View Notifications</a></li>
+                                  
+                                
+                            </ul>
+                        </nav>
+                        </div>
+
+<div class="container">
+<br>
+
+                        <div class="panel bg-transparent" style="width:81%;"><center>
+                      <h1>
+                   
+                    SEARCH<small class="on-right">for people or projects</small>
+                </h1>
+
+                        <div class="accordion" data-closeany="true" data-role="accordion">
+
+    <div class="accordion-frame">
+        <a class="heading active" href="#">
+
+            <h3><center>Search For People</center></h3>
+
+        </a>
+        <div class="content">
+
+             <div class="input-control text">
+			 <form method="post" id="ajaxform" action="search_db.php">
+                        <input type="text" name="person" placeholder="Enter the name of a person">
+                        <button class="btn-search"></button>
+                        </div>
+
+                            <legend id="_radio"><i class="icon-equalizer on-left"></i>Filter your search by:</legend>
+                            <div>
+                            
+
+                                
+                                <div class="input-control checkbox default-style margin10" data-role="input-control">
+                                    
+                                </div>  <select id="skill_category" name="branch" class="span6 valid">
+                    <option value="1">Computer Science and Engineering/Information Science Engineering</option>
+                    <option value="2">Electronics and Communication Engineering/Telicommunication Engineering</option>
+                    <option value="3">Electrical and Electronics Engineering</option>
+                    <option value="4">Mechanical Engineering</option>
+                    <option value="5">Civil Engineering</option>
+                    <option value="6">Biotechnology</option>
+                    <option value="7">Business Management</option>
+                    <option value="8">Hospitality and Event Management</option>
+                    <option value="9">Other (please specify)</option>
+                    <option selected="" value="-1">--Choose your Stream--</option>
+                    </select><br>
+
+                   
+                                <div class="input-control checkbox default-style margin10" data-role="input-control">
+                                    
+                                </div> <select id="skill_category" name="sem" class="span6 valid">
+                   <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                                        
+                    <option selected="" value="-1">--Choose your Year--</option>
+                    </select><br>
+                               
+                                <div class="input-control checkbox default-style margin10" data-role="input-control">
+                                    <label>
+                                        College
+                                        
+                                    </label>
+                                
+                            </div><div class="input-control textarea" data-role="input-control fixed">
+                                        <input type="text" name="coll"> 
+                                    </div>
+									<button type="submit" onClick="yeha()">yeeha</button>
+									</form>
+                            
+                                
+        </div></div>
+</div>
+        <div class="accordion-frame">
+        <a class="heading active" href="#">
+           <h3><center> Search For Projects</center></h3>
+
+        </a>
+        <div class="content">
+        
+             <div class="input-control text">
+                        <input type="text" name="pname" placeholder="Enter Project name"> 
+                        <button class="btn-search"></button>
+                        </div>
+
+                           <legend id="_radio"><i class="icon-equalizer on-left"></i>Filter your search by:</legend>
+                            <div>
+                            
+                                
+                                <div class="input-control checkbox default-style margin10" data-role="input-control">
+                                    <label>
+                                        Stream
+                                        
+                                    </label>
+                                </div> <select name="pstream">
+						<option value="misc">Miscellanious</option>
+  <option value="med">Medical</option>
+  <option value="army">Military</option>
+  <option value="fb">Social</option>
+  <option value="edu">Education</option>
+  <option value="hlt">Health</option>
+  <option selected="" value="-1">--Choose Project Target Audience--</option>
+</select><br>
+                                <div class="input-control checkbox default-style margin10" data-role="input-control">
+                                    <label> Project Location: </label>
+									</div><div class="input-control textarea" data-role="input-control fixed">
+                                        <input type="text" name="pregion" style="width: 500px;"> 
+                                    </div>
+									
+									
+												<br>
+                               
+                                <div class="input-control checkbox default-style margin10" data-role="input-control">
+                                    <label>
+                                        College
+                                        </label>
+										</div><div class="input-control textarea" data-role="input-control fixed">
+                                        <input type="text" name="pcoll" style="width: 500px;"> 
+                                    </div>
+									<input type="submit" value="Search">
+									</form>
+    </div>
+    </div>
+
+                     
+
+                       
+                         
+                       
+                     
+                    <br>   <br>                 
+
+                   
+ 
+
+                 
+
+                </fieldset>
+            </form>
+        </div>
+ 
+                  
+
+            
+            </body>
+        
+
+   
+  
+  </html>
+
+
+

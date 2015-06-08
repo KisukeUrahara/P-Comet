@@ -1,0 +1,234 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="product" content="Metro UI CSS Framework">
+    <meta name="description" content="Simple responsive css framework">
+    <meta name="author" content="Sergey S. Pimenov, Ukraine, Kiev">
+    <meta name="keywords" content="js, css, metro, framework, windows 8, metro ui">
+
+    <link href="css/metro-bootstrap.css" rel="stylesheet">
+    <link href="css/metro-bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/iconFont.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    <link href="js/prettify/prettify.css" rel="stylesheet">
+
+    <!-- Load JavaScript Libraries -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery/jquery.widget.min.js"></script>
+    <script src="js/jquery/jquery.mousewheel.js"></script>
+    <script src="js/prettify/prettify.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script>
+
+    <!-- Local JavaScript -->
+    <script src="js/docs.js"></script>
+    <script src="js/github.info.js"></script>
+	<script src="min/metro.min.js"></script>
+	<script src="js/metro-dropdown.js"></script>
+	<style>
+.container{
+	width:20%;
+	height:300px;
+	float:right;
+	margin-right:100px;
+	text-align:left;
+	position: absolute;
+    right: 0px;
+	left:340px;
+	top:50px;
+	
+	
+	}
+	</style>
+
+</head>
+<body class="metro">
+<nav class="navigation-bar dark" style="width:100%">
+    <nav class="navigation-bar-content">
+        <div class="element">
+            <a class="dropdown-toggle" href="test.html">p-comet</a>
+            
+        </div>
+ 
+        <span class="element-divider"></span>
+		<a class="element brand" href="balloon.html"><span class="icon-comments-2"></span></a>
+		
+        <a class="element brand" href="forms.html"><span class="icon-book"></span></a>
+        <a class="element brand" href="#"><span class="icon-alarm"></span></a>
+        <span class="element-divider"></span>
+ 
+        <div class="element input-element">
+            <form>
+                <div class="input-control text">
+                    <input type="text" placeholder="Search...">
+                    <button class="btn-search"></button>
+                </div>
+            </form>
+        </div>
+ 
+        <div class="element place-right">
+            <a class="dropdown-toggle" href="#">
+                <span class="icon-cog"></span>
+            </a>
+            <ul class="dropdown-menu place-right" data-role="dropdown" style="display: none;">
+                                <li><a href="#">Settings</a></li>
+                                
+                                <li><a href="#">Support</a></li>
+                                <li><a href="#">Logout</a></li>
+                            </ul>
+                
+        </div>
+        <!--<span class="element-divider place-right"></span>
+        <a class="element place-right" href="#"><span class="icon-locked-2"></span></a>-->
+        <span class="element-divider place-right"></span>
+		<a class="element place-right" href="mp.html"><span class="icon-user"></span></a>
+        <button class="element image-button image-left place-right" >
+            Sachit
+            <img src="images/unknown.jpg"/>
+        </button>
+    </nav>
+</nav>
+ <br><br><br><br>
+
+<div style="width:20%">
+<nav class="sidebar light" style="z-index:-1;">
+                            <ul>
+                                <li class="title"><center>Quick Access Menu</center></li>
+                                <li class="active"><a href="#"><i class="icon-home"></i>Home</a></li>
+                                
+                                <li>
+                                    <a class="dropdown-toggle"><i class="icon-user-2"></i>My Profile</a>
+                                    <ul class="dropdown-menu" data-role="dropdown" style="display: none;">
+                                        <li><a href="profile.html">View My Profile</a></li>
+                                             <li><a href="#">Edit My Profile</a></li>
+                                                     </ul></li>
+
+                                                    <li> <a class="dropdown-toggle" href="#"><i class="icon-book"></i>My Projects</a>
+                                    <ul class="dropdown-menu" data-role="dropdown" style="display: none;">
+                                        <li><a href="addproject.html">Add Project</a></li>
+                                        <li><a href="">Current Projects</a></li>
+                                             <li><a href="">Finished Projects</a></li>
+
+                                                     </ul></li>
+
+                                                     <li><a class="dropdown-toggle" href="#"><i class="icon-search"></i>Search</a>
+                                    <ul class="dropdown-menu" data-role="dropdown" style="display: none;">
+                                        <li><a href="">People</a></li>
+                                        <li><a href="search.html">Projects</a></li>
+                                            
+
+                                                     </ul></li>
+
+
+                                       
+                                        
+                                        <li class="divider"></li>
+                                        
+                                        
+                                    
+                                
+                               
+
+                                <li class="title"><center>More Options</center></li>
+                                <li><a href="chat.html"><i class="icon-comments-2"></i>Quick Chat</a></li>
+                                <li><a href="#"><i class="icon-alarm"></i>View Notifications</a></li>
+                                  
+                                
+                            </ul>
+                        </nav>
+                        </div>
+
+						
+						<div class="container">
+						<div style="width:60%">
+						<h1>
+                    <a href="/"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
+                    Project<small class="on-right">details</small>
+                </h1>
+            <form>
+                <fieldset>
+                    
+                    <label>Project Name</label>
+                    <div class="input-control text" data-role="input-control">
+                        <input type="text" placeholder="What do you need to do?" autofocus="">
+                        <button class="btn-clear" tabindex="-1" type="button"></button>
+                    </div>
+                    <label>Enter Project Stream: </label>
+                    <div class="input-control text" data-role="input-control">
+                        <select>
+						<option value="misc">Miscellanious</option>
+  <option value="med">Medical</option>
+  <option value="army">Military</option>
+  <option value="fb">Social</option>
+  <option value="edu">Education</option>
+</select>
+                    </div>
+					
+					<label>Search for Projects</label>
+                    <div class="input-control text" data-role="input-control">
+                        <input type="text" placeholder="search for projects" >
+                        <button class="btn-search"></button>
+                   <label>Upload files here</label>
+                    <div class="input-control file" data-role="input-control">
+                        <input type="file" tabindex="-1" style="z-index: 0;"><input type="text" id="__input_file_wrapper__" readonly="" style="z-index: 1; cursor: default;">
+                        <button class="btn-file" type="button"></button>
+                    </div>
+					<label>Describe your project in detail:  
+							</label>
+					<form>
+                                    <div class="input-control textarea" data-role="input-control">
+                                        <textarea></textarea>
+                                    </div>
+                                </form>
+				
+					<select id="skill_category" name="skill_category" class="span6 valid">
+					<option value="1">Websites IT &amp; Software</option>
+					<option value="2">Mobile</option>
+					<option value="3">Writing</option>
+					<option value="4">Design</option>
+					<option value="5">Data Entry</option>
+					<option value="6">Product Sourcing &amp; Manufacturing</option>
+					<option value="7">Sales &amp; Marketing</option>
+					<option value="8">Business, Accounting &amp; Legal</option>
+					<option value="-2">Customized (Select skills manually)</option>
+					<option selected="" value="-1">Select a category of work (Optional)</option>
+					</select>
+ <div class="clearfix">
+                        <div class="input-control radio inline-block" data-role="input-control">
+                            <label class="inline-block">
+                                <input type="radio" name="r1" checked="">
+                                <span class="check"></span>
+                                mini project
+                            </label>
+                            <label class="inline-block">
+                                <input type="radio" name="r1">
+                                <span class="check"></span>
+                               big project
+                            </label>
+                        </div>
+                   
+</div>
+</div>
+                    
+					<br><br><button class="bg-darkRed fg-white">Post</button>
+					<button class="image-button warning image-left">
+    Download
+    <img src="images/download-32.png" class="bg-cobalt">
+</button>
+                    
+                   
+
+                    <div style="margin-top: 20px">
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+		</div>
+						</body>
+						</html>

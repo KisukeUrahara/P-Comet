@@ -1,0 +1,5 @@
+$mysql_host = "mysql12.000webhost.com";
+$mysql_database = "a9283273_pcomet";
+$mysql_user = "a9283273_pssp";
+$mysql_password = "ournewapp00";
+for emailid use mine... "prashanth9c007@gmail.com"

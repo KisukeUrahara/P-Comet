@@ -1,0 +1,225 @@
+<?php session_start();
+if(!isset($_SESSION['myusername']))
+header("location:http://localhost/Finalised_work/index.html"); ?>
+
+                            <!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>P-Comet</title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+                    <link rel="icon" type="image/png" href="images/gsletterP12.png">
+<link rel="stylesheet" href="docs/css/metro-bootstrap.css">
+<link rel="stylesheet" href="docs/css/metro-bootstrap-responsive.css">
+<link href="docs/css/iconFont.css" rel="stylesheet">
+<link rel="stylesheet" href="docs/css/iconFont.css">
+<script src ="docs/js/jquery/jquery.min.js"></script>
+<script src ="docs/js/jquery/jquery.mousewheel.js"></script>
+<script src="docs/js/jquery/jquery.widget.min.js"></script>
+<script src="docs/js/metro.min.js"></script>
+<script src="docs/js/metro-carousel.js"></script>
+<script src="docs/js/prettify.js"></script>
+<script src="docs/js/metro-dropdown.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+				$(document).ready(function(){
+						$.ajax({
+								url: 'http://localhost/Projectx/news.php' ,
+								dataType: 'json' ,
+								success: function(data){
+										//alert('in success');
+										$.each(data,function(i,item){
+												$('#request').append("<a href='#' class='list' style='width:80%>");
+												$('#request').append("<div class='list-content bd-black'>");
+												$('#request').append("<img src='"+item.vidurl+"'style='height:100px%;width:80%;' class='icon'/>");
+												$('#request').append("<div class='data'>");
+                                                $('#request').append("<span class='text-muted place-right' style='font-size: 12px;'>"+item.tsp+"</span><span class='list-title place-left'>");
+												$('#request').append(" &nbsp &nbsp <legend>Name:<i>"+item.project_name+"</i></legend><legend>Institute: <i>"+item.Institute+"</i></legend><legend>Project Location: <i>"+item.pregion+"</i></legend><legend>Stream: <i>"+item.Stream+"</i></legend></span><br>");
+											   var	x=""+item.Project_id;
+												$('#request').append("<button class='small info' onClick=\"window.location.href=\"http://localhost/Projectx/Finalised_work/projectDisp.php?pid="+item.Project_id+"\">View Page </button> <button class='small'>Send Request</button><br><br><br></div></div></a>");
+										});
+								} ,
+								error: function(){
+									alert('error1');
+								}
+						});
+				});
+				$(document).ready(function(){
+						$.ajax({
+								url: 'http://localhost/Projectx/requestDisp.php' ,
+								dataType: 'json' ,
+								success: function(data){
+										        $.each(data,function(i,item){
+												$('#sacrequest').append("<a href='#' class='list' style='width:80%>");
+												$('#sacrequest').append("<div class='list-content bd-black'>");
+												$('#sacrequest').append("<img src='"+item.dpurl+"'style='height:50%;width:50%;' class='icon'/>");
+												$('#sacrequest').append("<div class='data'>");
+                                                $('#sacrequest').append("<span class='text-muted place-right' style='font-size: 12px;'>"+item.tsp+"</span><span class='list-title place-left'>");
+												$('#sacrequest').append(" &nbsp &nbsp <legend>PROJECT Name:<i>"+item.project_name+"</i></legend><legend>PID: <i>"+item.pid+"</i></legend><legend>USER NAME: <i>"+item.Name+"</i></legend><legend>USER id: <i>"+item.uid+"</i></legend></span><br>");
+											   var	x=""+item.Project_id;
+												$('#sacrequest').append("<button id=\"preetiaccept\"class='small info' onClick=\"accepto()\">ACCEPT REQUEST </button> <button onClick=\"window.location=\"http://localhost/Projectx/Finalised_work/c_othersprof.php?uid="+item.uid+"class='small'>See Profile </button><br><br><br></div></div></a>");
+										});
+								} ,
+								error: function(){
+									alert('error2');
+								}
+						});
+				});
+ </script>
+
+
+<style>
+.container{
+    width:600px;
+    float:right;
+    margin-right:10px;
+    position: absolute;
+    right: 0px;
+    left:300px;
+    top:56px;
+    
+    }
+ </style>
+            
+     
+
+   
+</head>
+<body class = "metro" style="background-image: url('images/grayback.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+<div class="navigation-bar dark fixed-top" style="z-index:1;">
+    <div class="navigation-bar-content">
+        <a href="index.html" class="element image-button image-left place-left">P-Comet<img src="images/gsletterP12.png"></a>
+
+        <a class="pull-menu" href="#"></a> <!-- To create button for expanding top menu !-->
+
+                    <ul class="element-menu place-left">
+ 
+        <span class="element-divider"></span><a class="element brand" href="addproject.html"><span class="icon-book"></span><span class="icon-plus"></span></a><span class="element-divider"></span>
+        <a class="element brand" href="chat.html"><span class="icon-comments-2"></span></a>
+        <span class="element-divider"></span>
+        
+        <a class="element brand" href="#"><span class="icon-alarm"></span></a>
+        <span class="element-divider"></span>
+ 
+        
+ 
+        
+        <!--<span class="element-divider place-right"></span>
+        <a class="element place-right" href="#"><span class="icon-locked-2"></span></a>-->
+
+        </ul>
+
+       
+            <ul class="element-menu place-right">
+            <span class="element-divider"></span>
+        <a class="element image-button image-left" href="profile.html">
+           <?php echo $_SESSION['myusername'];?>
+            <img src="<?php echo $_SESSION['dpurl'];?>"/>
+        </a>
+        <span class="element-divider"></span>
+        <a class="element place-right" href="#"><i class="icon-exit"></i> Sign Out</a>
+        </ul>
+
+
+        
+     
+                            
+        
+    </div>
+    </div>
+</div>
+
+
+<br><br><br><br>
+
+<div style="width:20%;">
+<nav class="sidebar light" style="z-index:-1; background-color: rgba(255,255,255,0.0);">
+                            <ul>
+                                <li class="title"><center>Quick Access Menu</center></li>
+                                <li class="active"><a href="#"><i class="icon-home"></i>Home</a></li>
+                                
+                                <li><a href="profile.html"><i class="icon-user-2"></i>My Profile</a></li>
+
+                                                    <li> <a class="dropdown-toggle" href="#"><i class="icon-book"></i>Projects</a>
+                                    <ul class="dropdown-menu" data-role="dropdown" style="display: none;">
+                                        <li><a href="addproject.html">Start Project</a></li>
+                                        <li><a href="profile.html">My Projects</a></li>
+                                             
+
+                                                     </ul></li>
+
+                                                        <li><a href="search.html"><i class="icon-search"></i>Search</a>
+                                    </li>
+
+
+
+                                       
+                                        
+                                        <li class="divider"></li>
+                                        
+                                        
+                                    
+                                
+                               
+
+                                <li class="title"><center>More Options</center></li>
+                                <li><a href="chat.html"><i class="icon-comments-2"></i>Private Message System</a></li>
+                                <li><a href="#"><i class="icon-alarm"></i>View Notifications</a></li>
+                                  
+                                
+                            </ul>
+                        </nav>
+                        </div>
+
+    <div class="container">
+
+    <div class="grid ">
+                        <div class="row">
+                            <div class="span7">
+   <div class="panel bg-transparent" style="width: 100%;"><center>
+        
+            
+            <h1>NEWS<small>request</small></h1><hr style="width:100%;">
+
+        
+                        
+                        <div id="scrollbox1" data-role="scrollbox1" data-scroll="vertical">
+                             
+                        
+                                <div class="listview" id="request">
+                                 
+                                </div>
+                            </div></center></div></div>
+                            <script>
+                $(function(){
+                    $("#scrollbox1").scrollbar({
+                        height: 400,
+                        axis: 'y'
+                    });
+                    
+                });
+            </script>
+                            <div class="span3">
+                            <br><br><br><br>
+                            <legend> &nbsp &nbsp REQUESTS <small>RECEIVED</small></legend>
+                            <center>
+                                
+                                    <div id="sacrequest"> 
+									</div>
+									</div>
+                                    </center>
+                                <!--/div-->
+                            </div>
+
+                            
+
+                  
+
+            
+            </body>
+        
+
+   
+  
+  </html>
